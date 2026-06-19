@@ -1,0 +1,26 @@
+{
+  "name": "nbllmvault",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "NotebookLM-style knowledge studio built on the SwarmVault engine (Hono + React/Vite/Tailwind4/shadcn).",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c green,cyan \"pnpm --filter @nbllmvault/server dev\" \"pnpm --filter @nbllmvault/web dev\"",
+    "dev:server": "pnpm --filter @nbllmvault/server dev",
+    "dev:web": "pnpm --filter @nbllmvault/web dev",
+    "build": "pnpm --filter @nbllmvault/web build && pnpm --filter @nbllmvault/server build",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "playwright": "^1.61.0",
+    "playwright-core": "^1.61.0"
+  }
+}

@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  nbllmvault design tokens — NotebookLM-inspired knowledge studio.
+  Dark-first: deep slate canvas, violet/indigo accent, soft surfaces.
+*/
+:root {
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.18 0.02 265);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 265);
+  --primary: oklch(0.55 0.21 280);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.01 265);
+  --secondary-foreground: oklch(0.22 0.02 265);
+  --muted: oklch(0.96 0.01 265);
+  --muted-foreground: oklch(0.52 0.02 265);
+  --accent: oklch(0.94 0.03 280);
+  --accent-foreground: oklch(0.28 0.08 280);
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.01 265);
+  --input: oklch(0.9 0.01 265);
+  --ring: oklch(0.55 0.21 280);
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: oklch(0.17 0.015 265);
+  --foreground: oklch(0.95 0.01 265);
+  --card: oklch(0.21 0.018 265);
+  --card-foreground: oklch(0.95 0.01 265);
+  --popover: oklch(0.2 0.018 265);
+  --popover-foreground: oklch(0.95 0.01 265);
+  --primary: oklch(0.68 0.17 285);
+  --primary-foreground: oklch(0.16 0.02 265);
+  --secondary: oklch(0.27 0.02 265);
+  --secondary-foreground: oklch(0.95 0.01 265);
+  --muted: oklch(0.25 0.018 265);
+  --muted-foreground: oklch(0.68 0.02 265);
+  --accent: oklch(0.32 0.06 285);
+  --accent-foreground: oklch(0.92 0.03 285);
+  --destructive: oklch(0.62 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.3 0.02 265);
+  --input: oklch(0.32 0.02 265);
+  --ring: oklch(0.68 0.17 285);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Prose tweaks for rendered markdown pages */
+.md-prose {
+  line-height: 1.65;
+}
+.md-prose h1 { font-size: 1.6rem; font-weight: 700; margin: 0.4em 0 0.5em; }
+.md-prose h2 { font-size: 1.25rem; font-weight: 650; margin: 1.2em 0 0.4em; }
+.md-prose h3 { font-size: 1.05rem; font-weight: 600; margin: 1em 0 0.3em; }
+.md-prose p { margin: 0.6em 0; }
+.md-prose ul { margin: 0.5em 0; padding-left: 1.3em; list-style: disc; }
+.md-prose ol { margin: 0.5em 0; padding-left: 1.3em; list-style: decimal; }
+.md-prose li { margin: 0.2em 0; }
+.md-prose a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+.md-prose code { background: var(--color-muted); padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.85em; }
+.md-prose pre { background: var(--color-muted); padding: 0.8em 1em; border-radius: 8px; overflow-x: auto; }
+.md-prose pre code { background: transparent; padding: 0; }
+.md-prose blockquote { border-left: 3px solid var(--color-primary); padding-left: 1em; color: var(--color-muted-foreground); margin: 0.6em 0; }
+.md-prose table { border-collapse: collapse; margin: 0.6em 0; }
+.md-prose th, .md-prose td { border: 1px solid var(--color-border); padding: 0.4em 0.7em; }
+
+/* Thin scrollbars */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
